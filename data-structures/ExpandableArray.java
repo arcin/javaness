@@ -7,11 +7,29 @@ public class ExpandableArray implements List {
   public ExpandableArray () {
     this.limit = DEFAULT_SIZE;
     this.currentLength = 0;
-    this.intArray = new Integer[limit];
+    this.intArray = new Integer[this.limit];
   }
 
 
-  public void add(Integer num){}
+  public void add(Integer num){
+    if (this.currentLength < this.limit) {
+      intArray[this.currentLength] = num;
+      this.currentLength += 1;
+    } else {
+
+      this.limit = this.limit * 2;
+      Integer[] newArr = new Integer[this.limit];
+
+      for (int i; i < this.intArray.length; i++){
+        newArr[i] = this.intArray[i];
+      }
+
+      newArr[this.currentLength] = num;
+      this.currentLength += 1;
+      this.intArray = newArr;
+    }
+
+  }
   public void add(int index, Integer element){}
   public void clear(){}
   public Boolean contains(Object member){return null;}
