@@ -49,7 +49,7 @@ public class ExpandableArray implements List {
     }
     return null;
   }
-  public Integer indexOf(Object member) {
+  public Integer indexOf(Object member){
     for (int i = 0; i < this.currentLength; i++) {
       if (this.intArray[i].equals(member)) {
         return i;
@@ -57,7 +57,9 @@ public class ExpandableArray implements List {
     }
     return null;
   }
-  public Boolean isEmpty(){return null;}
+  public Boolean isEmpty(){
+    return this.currentLength.equals(0);
+  }
   public Integer remove(Object member){return null;}
   public Integer remove(int Index){return null;}
   public Integer size(){return null;}
