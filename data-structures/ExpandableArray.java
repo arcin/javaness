@@ -43,7 +43,12 @@ public class ExpandableArray implements List {
     }
     return false;
   }
-  public Integer get(int index){return null;}
+  public Integer get(int index){
+    if (index < this.currentLength && index > 0) {
+      return this.intArray[index];
+    }
+    return null;
+  }
   public Integer indexOf(Object member){return null;}
   public Boolean isEmpty(){return null;}
   public Integer remove(Object member){return null;}
