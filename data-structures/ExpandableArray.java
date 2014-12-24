@@ -72,6 +72,8 @@ public class ExpandableArray implements List {
     this.currentLength -= 1;
     return num;
   }
-  public Integer size(){return null;}
+  public Integer size(){
+    return this.currentLength;
+  }
 
 }
