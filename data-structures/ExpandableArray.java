@@ -20,7 +20,7 @@ public class ExpandableArray implements List {
       this.limit = this.limit * 2;
       Integer[] newArr = new Integer[this.limit];
 
-      for (int i; i < this.intArray.length; i++){
+      for (int i = 0; i < this.currentLength; i++){
         newArr[i] = this.intArray[i];
       }
 
@@ -31,8 +31,18 @@ public class ExpandableArray implements List {
 
   }
   public void add(int index, Integer element){}
-  public void clear(){}
-  public Boolean contains(Object member){return null;}
+
+  public void clear(){
+    this.currentLength = 0;
+  }
+  public boolean contains(Object member){
+    for (int i = 0; i < this.currentLength; i++) {
+      if (this.intArray[i].equals(member)) {
+        return true;
+      }
+    }
+    return false;
+  }
   public Integer get(int index){return null;}
   public Integer indexOf(Object member){return null;}
   public Boolean isEmpty(){return null;}
