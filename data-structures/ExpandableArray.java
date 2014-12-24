@@ -60,8 +60,15 @@ public class ExpandableArray implements List {
   public Boolean isEmpty(){
     return this.currentLength.equals(0);
   }
-  public Integer remove(Object member){return null;}
-  public Integer remove(int Index){return null;}
+  public Integer remove(Object member){ return null; }
+  public Integer remove(int index){
+    Integer num = this.get(index);
+    for (int i = index; i < this.currentLength - 1; i++){
+      this.intArray[i] = this.intArray[i + 1];
+    }
+    this.currentLength -= 1;
+    return num;
+  }
   public Integer size(){return null;}
 
 }
