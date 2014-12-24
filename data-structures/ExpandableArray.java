@@ -60,7 +60,10 @@ public class ExpandableArray implements List {
   public Boolean isEmpty(){
     return this.currentLength.equals(0);
   }
-  public Integer remove(Object member){ return null; }
+  public Integer remove(Object member){
+    Integer index = this.indexOf(member);
+    return this.remove(index);
+  }
   public Integer remove(int index){
     Integer num = this.get(index);
     for (int i = index; i < this.currentLength - 1; i++){
