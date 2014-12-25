@@ -66,7 +66,7 @@ public class ExpandableArray implements List {
     }
     return null;
   }
-  public Boolean isEmpty(){
+  public boolean isEmpty(){
     return this.currentLength.equals(0);
   }
   public Integer remove(Object member){
