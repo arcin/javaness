@@ -11,7 +11,9 @@ public class ExpandableArray implements List {
   }
 
 
-  public void add(Integer num){ }
+  public void add(Integer num){
+    this.add(this.currentLength, num);
+  }
   public void add(int index, Integer num){
     if (this.currentLength < this.limit) {
       for (int i = this.currentLength - 1; i >= index; i--) {
