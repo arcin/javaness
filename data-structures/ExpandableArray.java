@@ -11,26 +11,33 @@ public class ExpandableArray implements List {
   }
 
 
-  public void add(Integer num){
+  public void add(Integer num){ }
+  public void add(int index, Integer num){
     if (this.currentLength < this.limit) {
-      intArray[this.currentLength] = num;
+      for (int i = this.currentLength - 1; i >= index; i--) {
+        this.intArray[i + 1] = this.intArray[i];
+      }
+      this.intArray[index] = num;
       this.currentLength += 1;
     } else {
 
       this.limit = this.limit * 2;
       Integer[] newArr = new Integer[this.limit];
 
-      for (int i = 0; i < this.currentLength; i++){
+      for (int i = 0; i < index; i++){
         newArr[i] = this.intArray[i];
       }
+      newArr[index] = num;
 
-      newArr[this.currentLength] = num;
+      for (int i = index; i < this.currentLength; i ++){
+        newArr[i + 1] = this.intArray[i];
+      }
+
       this.currentLength += 1;
       this.intArray = newArr;
     }
 
   }
-  public void add(int index, Integer element){}
 
   public void clear(){
     this.currentLength = 0;
